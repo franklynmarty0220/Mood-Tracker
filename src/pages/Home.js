@@ -7,10 +7,11 @@ const Home = () => {
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
     const RESPONSE_TYPE = "token"
     
-    
+    const scopes = "user-read-private user-read-recently-played";
+    const encodedScopes = encodeURIComponent(scopes);
 
     const handleLogin = () => {
-        window.location = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&scope=${RESPONSE_TYPE}&redirect_uri=${REDIRECT_URL}&response_type=token&show_dialog=true`;
+        window.location = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&scope=${encodedScopes}&redirect_uri=${REDIRECT_URL}&response_type=token&show_dialog=true`;
     };
 
     const handleDemoLogin = () => {
@@ -21,7 +22,7 @@ const Home = () => {
 
         <div>
             <Navbar />
-            <div className="d-flex tan justify-content-center align-items-center text-center content-body">
+            <div className="d-flex radiant justify-content-center align-items-center text-center content-body">
                 <div>
                     <h1 className="title-medium mt-5">Mood Tracker</h1>
                     <h2 className="bold">How are you?</h2>

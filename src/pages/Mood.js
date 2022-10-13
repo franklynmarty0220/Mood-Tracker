@@ -8,6 +8,7 @@ import Navbar from "../components/Navbar";
 import AnalyzingContainer from "../components/analyzing";
 import Loading from "../components/Loading";
 import { connect } from "react-redux";
+import setTokens from "../actions/tokens";
 
 
 const Mood = ({ history, tokens }) => {
@@ -65,4 +66,6 @@ const mapStateToProps = (state) => {
     return { tokens: state.tokens };
 };
 
-export default {mapStateToProps, Mood}
+export default connect(mapStateToProps, {
+    setTokens,
+})(Mood);
