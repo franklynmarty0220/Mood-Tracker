@@ -2,11 +2,10 @@ import React from "react";
 import Navbar from "../components/Navbar";
 
 const Home = () => {
-    const CLIENT_ID = "8eb9d04fdee24bc78ead10a93c05bcd4"
-    const REDIRECT_URL = "http://localhost:3000"
-    const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
-    const RESPONSE_TYPE = "token"
-    
+    const {
+            CLIENT_ID, AUTH_ENDPOINT, REDIRECT_URL
+    } = process.env;
+
     const scopes = "user-read-private user-read-recently-played";
     const encodedScopes = encodeURIComponent(scopes);
 
